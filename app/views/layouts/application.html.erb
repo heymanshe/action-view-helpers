@@ -17,22 +17,11 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-
-    <%= image_tag("rails.png", alt: "Rails Logo", size: "100x100") %>
-
     <%= javascript_include_tag "application" %>
 
     <%= stylesheet_link_tag "application", media: "all" %>
 
-    <%= audio_tag "/audios/sound.mp3", controls: true %>
-
-    <%= video_tag "/videos/trailer.mp4", controls: true, size: "640x480" %>
-
-    <%= favicon_link_tag "/favicon.ico" %>
-
     <%= auto_discovery_link_tag :rss, "http://www.example.com/feed.rss", title: "RSS Feed" %>
-
-    <%= picture_tag "/icon.webp", "icon.png" %>
 
     <%= preload_link_tag "application.css" %>
 
@@ -42,6 +31,17 @@
   </head>
 
   <body>
+    <%= image_tag "/rails.png", alt: "Rails Logo", size: "100x100" %>
+    <strong>This is rails logo.</strong>
+
+    <%= favicon_link_tag "/favicon.ico", size: "100x100" %>
+
+    <%= audio_tag "/sound.mp3", controls: true %>
+
+    <%= video_tag "/trailer.mp4", controls: true, size: "640x480" %>
+
+    <%= picture_tag "/icon.webp", "/icon.png" %>
+
     <%= yield %>
   </body>
 </html>
