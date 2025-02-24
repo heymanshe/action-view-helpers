@@ -398,5 +398,12 @@ preload_link_tag("application.css")
 # => <link rel="preload" href="/assets/application.css" as="style" type="text/css" />
 ```
 
+## 5.8 stylesheet_link_tag
 
+- Includes CSS stylesheets in the page.
+
+```ruby
+stylesheet_link_tag("application", media: "all")
+# => <link href="/assets/application.css" media="all" rel="stylesheet" />
+```
 
