@@ -353,3 +353,11 @@ favicon_link_tag
 # => <link href="/assets/favicon.ico" rel="icon" type="image/x-icon" />
 ```
 
+## 5.4 image_tag
+
+- Generates an `<img>` tag.
+
+```ruby
+image_tag("icon.png", size: "16x10", alt: "Edit Article")
+# => <img src="/assets/icon.png" width="16" height="10" alt="Edit Article" />
+```
