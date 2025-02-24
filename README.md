@@ -30,5 +30,68 @@ time_ago_in_words(3.minutes.from_now)
 # => "3 minutes"
 ```
 
+## 1.2 Number Formatting Methods 
+
+- A set of methods for converting numbers into formatted strings.
+
+### 1.2.1 number_to_currency
+
+- Formats a number into a currency string.
+
+```ruby
+number_to_currency(1234567890.50) # => $1,234,567,890.50
+```
+
+### 1.2.2 number_to_human
+
+- Formats large numbers into a more readable form.
+
+```ruby
+number_to_human(1234)    # => 1.23 Thousand
+number_to_human(1234567) # => 1.23 Million
+```
+
+## 1.2.3 number_to_human_size
+
+- Formats bytes into a human-readable file size.
+
+```ruby
+number_to_human_size(1234)    # => 1.21 KB
+number_to_human_size(1234567) # => 1.18 MB
+```
+
+### 1.2.4 number_to_percentage
+
+- Formats a number as a percentage string.
+
+```ruby
+number_to_percentage(100, precision: 0) # => 100%
+```
+
+### 1.2.5 number_to_phone
+
+- Formats a number into a phone number format (US default).
+
+```ruby
+number_to_phone(1235551234) # => 123-555-1234
+```
+
+### 1.2.6 number_with_delimiter
+
+- Formats a number with grouped thousands using a delimiter.
+
+```ruby
+number_with_delimiter(12345678) # => 12,345,678
+```
+
+### 1.2.7 number_with_precision
+
+- Formats a number with a specified level of precision (default: 3).
+
+```ruby
+number_with_precision(111.2345)               # => 111.235
+number_with_precision(111.2345, precision: 2) # => 111.23
+```
+
 
 
