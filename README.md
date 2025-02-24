@@ -361,3 +361,13 @@ favicon_link_tag
 image_tag("icon.png", size: "16x10", alt: "Edit Article")
 # => <img src="/assets/icon.png" width="16" height="10" alt="Edit Article" />
 ```
+
+## 5.5 javascript_include_tag
+
+- Includes JavaScript files in the page.
+
+```ruby
+javascript_include_tag("common", async: true)
+# => <script src="/assets/common.js" async="async"></script>
+```
+
