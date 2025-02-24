@@ -239,4 +239,16 @@ word_wrap("Once upon a time", line_width: 8)
 <%= mail_to "me@john_doe.com", cc: "me@jane_doe.com", subject: "Example Email" %>
 ```
 
+## 3.5 url_for
+
+- Returns the URL for the given model or options.
+
+```ruby
+<%= url_for @profile %>
+<!-- Output: /profiles/1 -->
+
+<%= url_for [@hotel, @booking, page: 2, line: 3] %>
+<!-- Output: /hotels/1/bookings/1?line=3&page=2 -->
+```
+
 
