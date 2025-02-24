@@ -344,5 +344,12 @@ auto_discovery_link_tag(:rss, "http://www.example.com/feed.rss", title: "RSS Fee
 # => <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://www.example.com/feed.rss" />
 ```
 
+## 5.3 favicon_link_tag
 
+- Generates a link tag for the favicon.
+
+```ruby
+favicon_link_tag
+# => <link href="/assets/favicon.ico" rel="icon" type="image/x-icon" />
+```
 
