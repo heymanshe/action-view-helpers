@@ -309,4 +309,29 @@ strip_tags("<b>Bold</b> no more! <a href='more.html'>See more</a>")
 # => Bold no more! See more
 ```
 
+# 5. Asset Host Configuration
+
+- By default, Rails links to assets in the `public` folder, but you can configure a dedicated asset server using `config.asset_host` in `config/environments/production.rb`:
+
+```ruby
+config.asset_host = "assets.example.com"
+```
+
+- Then, asset helper methods generate URLs like:
+
+```ruby
+image_tag("rails.png")
+# => <img src="//assets.example.com/images/rails.png" />
+```
+
+**Asset Helper Methods**
+
+## 5.1 audio_tag
+
+- Generates an HTML `<audio>` tag.
+
+```ruby
+audio_tag("sound.wav", "sound.mid")
+# => <audio><source src="/audios/sound.wav" /><source src="/audios/sound.mid" /></audio>
+```
 
