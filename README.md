@@ -371,3 +371,21 @@ javascript_include_tag("common", async: true)
 # => <script src="/assets/common.js" async="async"></script>
 ```
 
+## 5.6 picture_tag
+
+- Creates a `<picture>` element with multiple sources.
+
+```ruby
+picture_tag("icon.webp", "icon.png")
+```
+
+- Generates:
+
+```ruby
+<picture>
+  <source srcset="/assets/icon.webp" type="image/webp" />
+  <source srcset="/assets/icon.png" type="image/png" />
+  <img src="/assets/icon.png" />
+</picture>
+```
+
