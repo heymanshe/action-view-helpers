@@ -1,2 +1,14 @@
-<h1>Articles#index</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h1>Articles</h1>
+
+<%= tag.div "Hello, world!" %>
+
+<%= tag.section class: token_list("kitties", "puppies", nil, false, { bar: true }) %>
+
+<%= tag.div data: { user_id: 123 } do %>
+  <p>Inside div with data attribute</p>
+<% end %>
+
+<% mobile, alignment = true, "center" %>
+<%= tag.div class: class_names("flex items-#{alignment}", "flex-col": mobile) do %>
+  <p>Styled div</p>
+<% end %>

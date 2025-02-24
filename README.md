@@ -463,3 +463,32 @@ alert('All is good')
   alert("Welcome to my app!")
 <% end %>
 ```
+
+# 7. # Alternative HTML Tag Helpers
+
+## 7.1 `tag`
+
+Generates a standalone HTML tag with the given name and options.
+
+### Syntax:
+```ruby
+tag.some_tag_name(optional content, options)
+```
+- Supports any tag (e.g., `br`, `div`, `section`, `article`).
+- Adds optional attributes via `options`.
+
+### Examples:
+```ruby
+tag.h1 "All titles fit to print"
+# => <h1>All titles fit to print</h1>
+
+tag.div "Hello, world!"
+# => <div>Hello, world!</div>
+
+tag.section class: %w(kitties puppies)
+# => <section class="kitties puppies"></section>
+
+tag.div data: { user_id: 123 }
+# => <div data-user-id="123"></div>
+```
+- **`data` attributes**: Passed as a hash, converted to `data-*` attributes for JavaScript compatibility.
