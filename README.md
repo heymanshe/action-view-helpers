@@ -297,5 +297,16 @@ strip_links("emails to <a href='mailto:me@email.com'>me@email.com</a>.")
 # => emails to me@email.com.
 ```
 
+## 4.4 strip_tags
+
+- Removes all HTML tags, including comments and special characters.
+
+```ruby
+strip_tags("Strip <i>these</i> tags!")
+# => Strip these tags!
+
+strip_tags("<b>Bold</b> no more! <a href='more.html'>See more</a>")
+# => Bold no more! See more
+```
 
 
