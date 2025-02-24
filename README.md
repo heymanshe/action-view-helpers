@@ -150,6 +150,26 @@ word_wrap("Once upon a time", line_width: 8)
 # => "Once\nupon a\ntime"
 ```
 
+# 2. Form Helpers
 
+- Form helpers simplify working with models compared to standard HTML elements. They provide various methods to generate forms efficiently based on models.
+
+- **Key Benefits**
+
+  - **Simplifies Form Creation**: Provides predefined methods for different input types.
+
+  - **Model Integration**: Generates forms directly tied to models.
+
+  - **Automatic Parameter Handling**: Form inputs are grouped into the params object and sent to the controller on submission.
+
+- **Common Form Helper Methods**
+
+  - Text Fields (text_field)
+
+  - Password Fields (password_field)
+
+  - Select Dropdowns (select)
+
+  - Check Boxes & Radio Buttons (check_box, radio_button)
 
 
