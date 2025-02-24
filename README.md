@@ -277,4 +277,13 @@ class Application < Rails::Application
 end
 ```
 
+## 4.2 sanitize_css
+
+- Sanitizes a block of CSS code, especially from style attributes in user-generated content.
+
+```ruby
+sanitize_css("background-color: red; color: white; font-size: 16px;")
+```
+
+
 
