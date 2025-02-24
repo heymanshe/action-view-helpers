@@ -407,3 +407,12 @@ stylesheet_link_tag("application", media: "all")
 # => <link href="/assets/application.css" media="all" rel="stylesheet" />
 ```
 
+## 5.9 video_tag
+
+- Generates an HTML `<video>` tag.
+
+```ruby
+video_tag(["trailer.ogg", "trailer.flv"])
+# => <video><source src="/videos/trailer.ogg" /><source src="/videos/trailer.flv" /></video>
+```
+
