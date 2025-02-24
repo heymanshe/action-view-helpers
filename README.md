@@ -287,7 +287,7 @@ sanitize_css("background-color: red; color: white; font-size: 16px;")
 
 ## 4.3 strip_links
 
-- Removes all <a> tags while keeping the link text.
+- Removes all `<a>` tags while keeping the link text.
 
 ```ruby
 strip_links("<a href='https://rubyonrails.org'>Ruby on Rails</a>")
@@ -415,4 +415,27 @@ stylesheet_link_tag("application", media: "all")
 video_tag(["trailer.ogg", "trailer.flv"])
 # => <video><source src="/videos/trailer.ogg" /><source src="/videos/trailer.flv" /></video>
 ```
+
+# 6. Javascript
+
+## 6.1 escape_javascript
+
+- Escapes carriage returns, single quotes, and double quotes in JavaScript segments.
+
+- Ensures text does not contain invalid characters when parsed by the browser.
+
+- Useful when rendering dynamic text inside JavaScript.
+
+```ruby
+<%# app/views/users/greeting.html.erb %>
+My name is <%= current_user.name %>, and I'm here to say "Welcome to our website!"
+
+<script>
+  var greeting = "<%= escape_javascript render('users/greeting') %>";
+  alert(`Hello, ${greeting}`);
+</script>
+```
+
+- Correctly escapes quotes to display the greeting in an alert box.
+
 

@@ -1,0 +1,8 @@
+<h1>User Profile</h1>
+
+<p>Welcome, <%= @user.name %>!</p>
+
+<script>
+  var greeting = "<%= escape_javascript(render 'users/greeting') %>";
+  alert(`Hello, ${greeting}`);
+</script>
