@@ -492,3 +492,28 @@ tag.div data: { user_id: 123 }
 # => <div data-user-id="123"></div>
 ```
 - **`data` attributes**: Passed as a hash, converted to `data-*` attributes for JavaScript compatibility.
+
+## 7.2 `token_list`
+
+Generates a string of tokens from the provided arguments. 
+
+- **Alias:** `class_names`
+
+- Filters out falsy values like `nil`, `false`, and empty strings.
+
+### Examples:
+
+```ruby
+token_list("cats", "dogs")
+# => "cats dogs"
+
+token_list(nil, false, 123, "", "foo", { bar: true })
+# => "123 foo bar"
+
+mobile, alignment = true, "center"
+token_list("flex items-#{alignment}", "flex-col": mobile)
+# => "flex items-center flex-col"
+
+class_names("flex items-#{alignment}", "flex-col": mobile)
+# => "flex items-center flex-col"
+```
