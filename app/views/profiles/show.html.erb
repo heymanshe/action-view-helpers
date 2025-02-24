@@ -2,4 +2,8 @@
 
 <%= button_to "Sign in", sessions_path, method: :post %>
 
+<% if current_page?(controller: "profiles", action: "show") %>
+  <strong>Currently on the profile page</strong>
+<% end %>
+
 <%= url_for(@profile) %>

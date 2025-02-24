@@ -189,3 +189,13 @@ word_wrap("Once upon a time", line_width: 8)
   <input type="submit" value="Sign in" />
 </form>
 ```
+
+## 3.2 current_page?
+
+- Returns true if the current request URL matches the given options.
+
+```ruby
+<% if current_page?(controller: 'profiles', action: 'show') %>
+  <strong>Currently on the profile page</strong>
+<% end %>
+```
