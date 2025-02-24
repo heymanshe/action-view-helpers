@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "users/index"
+  get "users/show"
   get "articles/index"
   get "sessions/new"
   get "sessions/create"
@@ -17,7 +19,10 @@ Rails.application.routes.draw do
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
-  root "profiles#show" # Set a default page to test
+  # root "profiles#show" # Set a default page to test
+  resources :users, only: [ :index, :show ]
+
+  root "users#index"
   # Defines the root path route ("/")
   # root "posts#index"
 end
