@@ -438,4 +438,28 @@ My name is <%= current_user.name %>, and I'm here to say "Welcome to our website
 
 - Correctly escapes quotes to display the greeting in an alert box.
 
+## 6.2 javascript_tag
 
+- Wraps provided JavaScript code inside a `<script>` tag.
+
+- Accepts a hash of options to control script tag attributes.
+
+```ruby
+<%= javascript_tag("alert('All is good')", type: "application/javascript") %>
+```
+
+```
+<script type="application/javascript">
+//<![CDATA[
+alert('All is good')
+//]]>
+</script>
+```
+
+- Alternatively, use a block:
+
+```ruby
+<%= javascript_tag type: "application/javascript" do %>
+  alert("Welcome to my app!")
+<% end %>
+```
