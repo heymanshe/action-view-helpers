@@ -285,5 +285,17 @@ end
 sanitize_css("background-color: red; color: white; font-size: 16px;")
 ```
 
+## 4.3 strip_links
+
+- Removes all <a> tags while keeping the link text.
+
+```ruby
+strip_links("<a href='https://rubyonrails.org'>Ruby on Rails</a>")
+# => Ruby on Rails
+
+strip_links("emails to <a href='mailto:me@email.com'>me@email.com</a>.")
+# => emails to me@email.com.
+```
+
 
 
