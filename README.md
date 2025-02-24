@@ -1,24 +1,34 @@
-# README
+# 1. Formatting Helpers
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 1.1 Dates
 
-Things you may want to cover:
+- Rails provides helpers to display date and time elements in a human-readable format.
 
-* Ruby version
+### 1.1.1 distance_of_time_in_words
 
-* System dependencies
+- Calculates the approximate time difference between two `Time` or `Date` objects (or integers as seconds).
 
-* Configuration
+- Use `include_seconds`: true for more detailed approximations.
 
-* Database creation
+```ruby
+distance_of_time_in_words(Time.current, 15.seconds.from_now)
+# => "less than a minute"
 
-* Database initialization
+distance_of_time_in_words(Time.current, 15.seconds.from_now, include_seconds: true)
+# => "less than 20 seconds"
+```
 
-* How to run the test suite
+- `Time.current` is preferred over `Time.now` as it respects the Rails-configured timezone.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+### 1.1.2 time_ago_in_words
 
-* ...
+- Calculates the approximate time difference between a given Time or Date object (or integer in seconds) and Time.current.
+
+```ruby
+time_ago_in_words(3.minutes.from_now)
+# => "3 minutes"
+```
+
+
+
