@@ -309,4 +309,110 @@ strip_tags("<b>Bold</b> no more! <a href='more.html'>See more</a>")
 # => Bold no more! See more
 ```
 
+# 5. Asset Host Configuration
+
+- By default, Rails links to assets in the `public` folder, but you can configure a dedicated asset server using `config.asset_host` in `config/environments/production.rb`:
+
+```ruby
+config.asset_host = "assets.example.com"
+```
+
+- Then, asset helper methods generate URLs like:
+
+```ruby
+image_tag("rails.png")
+# => <img src="//assets.example.com/images/rails.png" />
+```
+
+**Asset Helper Methods**
+
+## 5.1 audio_tag
+
+- Generates an HTML `<audio>` tag.
+
+```ruby
+audio_tag("sound.wav", "sound.mid")
+# => <audio><source src="/audios/sound.wav" /><source src="/audios/sound.mid" /></audio>
+```
+
+## 5.2  auto_discovery_link_tag
+
+- Creates a link for auto-discovery of RSS, Atom, or JSON feeds.
+
+```ruby
+auto_discovery_link_tag(:rss, "http://www.example.com/feed.rss", title: "RSS Feed")
+# => <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://www.example.com/feed.rss" />
+```
+
+## 5.3 favicon_link_tag
+
+- Generates a link tag for the favicon.
+
+```ruby
+favicon_link_tag
+# => <link href="/assets/favicon.ico" rel="icon" type="image/x-icon" />
+```
+
+## 5.4 image_tag
+
+- Generates an `<img>` tag.
+
+```ruby
+image_tag("icon.png", size: "16x10", alt: "Edit Article")
+# => <img src="/assets/icon.png" width="16" height="10" alt="Edit Article" />
+```
+
+## 5.5 javascript_include_tag
+
+- Includes JavaScript files in the page.
+
+```ruby
+javascript_include_tag("common", async: true)
+# => <script src="/assets/common.js" async="async"></script>
+```
+
+## 5.6 picture_tag
+
+- Creates a `<picture>` element with multiple sources.
+
+```ruby
+picture_tag("icon.webp", "icon.png")
+```
+
+- Generates:
+
+```ruby
+<picture>
+  <source srcset="/assets/icon.webp" type="image/webp" />
+  <source srcset="/assets/icon.png" type="image/png" />
+  <img src="/assets/icon.png" />
+</picture>
+```
+
+## 5.7 preload_link_tag
+
+- Preloads assets for performance optimization.
+
+```ruby
+preload_link_tag("application.css")
+# => <link rel="preload" href="/assets/application.css" as="style" type="text/css" />
+```
+
+## 5.8 stylesheet_link_tag
+
+- Includes CSS stylesheets in the page.
+
+```ruby
+stylesheet_link_tag("application", media: "all")
+# => <link href="/assets/application.css" media="all" rel="stylesheet" />
+```
+
+## 5.9 video_tag
+
+- Generates an HTML `<video>` tag.
+
+```ruby
+video_tag(["trailer.ogg", "trailer.flv"])
+# => <video><source src="/videos/trailer.ogg" /><source src="/videos/trailer.flv" /></video>
+```
 

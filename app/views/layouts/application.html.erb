@@ -17,12 +17,32 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
+    <%= javascript_include_tag "application" %>
+
+    <%= stylesheet_link_tag "application", media: "all" %>
+
+    <%= auto_discovery_link_tag :rss, "http://www.example.com/feed.rss", title: "RSS Feed" %>
+
+    <%= preload_link_tag "application.css" %>
+
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
+    <%= image_tag "/rails.png", alt: "Rails Logo", size: "100x100" %>
+    <strong>This is rails logo.</strong>
+
+    <%= favicon_link_tag "/favicon.ico", size: "100x100" %>
+
+    <%= audio_tag "/sound.mp3", controls: true %>
+
+    <%= video_tag "/trailer.mp4", controls: true, size: "640x480" %>
+
+    <%= picture_tag "/icon.webp", "/icon.png" %>
+
     <%= yield %>
   </body>
 </html>
+
