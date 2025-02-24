@@ -172,4 +172,71 @@ word_wrap("Once upon a time", line_width: 8)
 
   - Check Boxes & Radio Buttons (check_box, radio_button)
 
+# 3. Navigation Methods
+
+## 3.1 button_to
+
+- Generates a form with a submit button linking to a specified URL.
+
+```ruby
+<%= button_to "Sign in", sign_in_path %>
+```
+
+- Output:
+
+```ruby
+<form method="post" action="/sessions" class="button_to">
+  <input type="submit" value="Sign in" />
+</form>
+```
+
+## 3.2 current_page?
+
+- Returns true if the current request URL matches the given options.
+
+```ruby
+<% if current_page?(controller: 'profiles', action: 'show') %>
+  <strong>Currently on the profile page</strong>
+<% end %>
+```
+
+## 3.3 link_to
+
+- Creates an anchor tag linking to a specified URL or model.
+
+```ruby
+<%= link_to "Profile", @profile %>
+<!-- Output: <a href="/profiles/1">Profile</a> -->
+
+<%= link_to "Articles", articles_path, id: "articles", class: "article__container" %>
+<!-- Output: <a href="/articles" class="article__container" id="articles">Articles</a> -->
+```
+
+- Block usage:
+
+```ruby
+<%= link_to @profile do %>
+  <strong><%= @profile.name %></strong> -- <span>Check it out!</span>
+<% end %>
+```
+
+- Output:
+
+```ruby
+<a href="/profiles/1">
+  <strong>David</strong> -- <span>Check it out!</span>
+</a>
+```
+
+## 3.4 mail_to
+
+- Generates a mailto link to an email address.
+
+```ruby
+<%= mail_to "john_doe@gmail.com" %>
+<!-- Output: <a href="mailto:john_doe@gmail.com">john_doe@gmail.com</a> -->
+
+<%= mail_to "me@john_doe.com", cc: "me@jane_doe.com", subject: "Example Email" %>
+```
+
 
