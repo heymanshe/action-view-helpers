@@ -389,3 +389,14 @@ picture_tag("icon.webp", "icon.png")
 </picture>
 ```
 
+## 5.7 preload_link_tag
+
+- Preloads assets for performance optimization.
+
+```ruby
+preload_link_tag("application.css")
+# => <link rel="preload" href="/assets/application.css" as="style" type="text/css" />
+```
+
+
+
