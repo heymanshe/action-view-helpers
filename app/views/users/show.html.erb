@@ -1,8 +1,4 @@
-<h1>User Profile</h1>
+<% content_for(:html_title) { "Profile of #{@user.name}" } %>
 
-<p>Welcome, <%= @user.name %>!</p>
-
-<script>
-  var greeting = "<%= escape_javascript(render 'users/greeting') %>";
-  alert(`Hello, ${greeting}`);
-</script>
+<h1><%= @user.name %>'s Profile</h1>
+<p>This is a profile page for <%= @user.name %>.</p>
