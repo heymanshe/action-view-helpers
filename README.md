@@ -335,3 +335,14 @@ audio_tag("sound.wav", "sound.mid")
 # => <audio><source src="/audios/sound.wav" /><source src="/audios/sound.mid" /></audio>
 ```
 
+## 5.2  auto_discovery_link_tag
+
+- Creates a link for auto-discovery of RSS, Atom, or JSON feeds.
+
+```ruby
+auto_discovery_link_tag(:rss, "http://www.example.com/feed.rss", title: "RSS Feed")
+# => <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="http://www.example.com/feed.rss" />
+```
+
+
+
