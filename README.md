@@ -172,4 +172,20 @@ word_wrap("Once upon a time", line_width: 8)
 
   - Check Boxes & Radio Buttons (check_box, radio_button)
 
+# 3. Navigation Methods
 
+## 3.1 button_to
+
+- Generates a form with a submit button linking to a specified URL.
+
+```ruby
+<%= button_to "Sign in", sign_in_path %>
+```
+
+- Output:
+
+```ruby
+<form method="post" action="/sessions" class="button_to">
+  <input type="submit" value="Sign in" />
+</form>
+```
