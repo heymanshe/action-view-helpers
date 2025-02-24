@@ -549,5 +549,29 @@ class_names("flex items-#{alignment}", "flex-col": mobile)
 </html>
 ```
 
+## 8.2 content_for
 
+- Stores a block of markup in an identifier for later use.
+
+- Used to dynamically insert content into layouts.
+
+- Can be called multiple times, appending content.
+
+- Cannot be used inside fragment caches.
+
+- Define content in a view:
+
+```ruby
+<% content_for(:html_title) { "Special Page Title" } %>
+```
+
+- Use it in a layout:
+
+```ruby
+<html>
+  <head>
+    <title><%= content_for?(:html_title) ? yield(:html_title) : "Default Title" %></title>
+  </head>
+</html>
+```
 
