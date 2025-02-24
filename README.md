@@ -228,3 +228,15 @@ word_wrap("Once upon a time", line_width: 8)
 </a>
 ```
 
+## 3.4 mail_to
+
+- Generates a mailto link to an email address.
+
+```ruby
+<%= mail_to "john_doe@gmail.com" %>
+<!-- Output: <a href="mailto:john_doe@gmail.com">john_doe@gmail.com</a> -->
+
+<%= mail_to "me@john_doe.com", cc: "me@jane_doe.com", subject: "Example Email" %>
+```
+
+
