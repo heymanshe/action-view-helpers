@@ -251,4 +251,30 @@ word_wrap("Once upon a time", line_width: 8)
 <!-- Output: /hotels/1/bookings/1?line=3&page=2 -->
 ```
 
+# 4. Sanitization 
+
+- Rails provides built-in methods for sanitizing text to ensure safe and valid HTML/CSS rendering. These methods help prevent XSS attacks by escaping or removing potentially malicious content. This functionality is powered by the rails-html-sanitizer gem.
+
+## 4.1 sanitize
+
+- Encodes HTML tags and strips attributes unless specifically allowed.
+
+```ruby
+sanitize @article.body
+```
+
+- Allowing specific tags and attributes:
+
+```ruby
+sanitize @article.body, tags: %w(table tr td), attributes: %w(id class style)
+```
+
+- To change the defaults globally, modify config/application.rb:
+
+```ruby
+class Application < Rails::Application
+  config.action_view.sanitized_allowed_tags = %w(table tr td)
+end
+```
+
 
