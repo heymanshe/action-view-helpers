@@ -6,4 +6,7 @@
   <strong>Currently on the profile page</strong>
 <% end %>
 
+<%= link_to "Profile", profile_path(@profile) %>
+<%= link_to "Articles", articles_path, class: "article__container" %>
+
 <%= url_for(@profile) %>

@@ -199,3 +199,32 @@ word_wrap("Once upon a time", line_width: 8)
   <strong>Currently on the profile page</strong>
 <% end %>
 ```
+
+## 3.3 link_to
+
+- Creates an anchor tag linking to a specified URL or model.
+
+```ruby
+<%= link_to "Profile", @profile %>
+<!-- Output: <a href="/profiles/1">Profile</a> -->
+
+<%= link_to "Articles", articles_path, id: "articles", class: "article__container" %>
+<!-- Output: <a href="/articles" class="article__container" id="articles">Articles</a> -->
+```
+
+- Block usage:
+
+```ruby
+<%= link_to @profile do %>
+  <strong><%= @profile.name %></strong> -- <span>Check it out!</span>
+<% end %>
+```
+
+- Output:
+
+```ruby
+<a href="/profiles/1">
+  <strong>David</strong> -- <span>Check it out!</span>
+</a>
+```
+
