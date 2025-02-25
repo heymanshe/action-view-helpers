@@ -620,3 +620,71 @@ class_names("flex items-#{alignment}", "flex-col": mobile)
 - Generates a unique cache key, e.g.
 `:views/articles/index:bea67108094918eeba32cd4a6f786301/articles/1`
 
+# 10. Miscellaneous 
+
+## 10.1 `atom_feed`
+
+- Atom Feeds are `XML-based` file formats used for content syndication. They allow users to browse content in feed readers and help search engines discover site information.
+
+- The `atom_feed` helper simplifies Atom feed generation, primarily in Builder templates.
+
+- Example Implementation
+
+- **Routes Configuration (config/routes.rb)**
+
+```ruby
+resources :articles
+```
+
+- **Controller (app/controllers/articles_controller.rb)**
+
+```ruby
+def index
+  @articles = Article.all
+
+  respond_to do |format|
+    format.html
+    format.atom
+  end
+end
+```
+
+- **View (app/views/articles/index.atom.builder)**
+
+```ruby
+atom_feed do |feed|
+  feed.title("Articles Index")
+  feed.updated(@articles.first.created_at)
+
+  @articles.each do |article|
+    feed.entry(article) do |entry|
+      entry.title(article.title)
+      entry.content(article.body, type: "html")
+      entry.author do |author|
+        author.name(article.author_name)
+      end
+    end
+  end
+end
+```
+
+## 10.2 `debug`
+
+- The debug helper returns a YAML representation of an object wrapped in a `<pre>` tag, making it easy to inspect objects in a readable format.
+
+```ruby
+my_hash = { "first" => 1, "second" => "two", "third" => [1, 2, 3] }
+debug(my_hash)
+```
+
+```ruby
+<pre class="debug_dump">---
+first: 1
+second: two
+third:
+- 1
+- 2
+- 3
+</pre>
+```
+
