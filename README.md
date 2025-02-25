@@ -591,3 +591,32 @@ class_names("flex items-#{alignment}", "flex-col": mobile)
 
 - Available in controllers, helpers, models, etc.
 
+## 9.2 Caching
+
+**Fragment Caching**
+
+- Cache parts of a view instead of an entire page.
+
+- Useful for caching menus, lists, static HTML fragments, etc.
+
+```ruby
+<% cache do %>
+  <%= render "application/footer" %>
+<% end %>
+```
+
+**Caching Based on Model Instances**
+
+- Cache each item separately by passing an object to cache.
+
+```ruby
+<% @articles.each do |article| %>
+  <% cache article do %>
+    <%= render article %>
+  <% end %>
+<% end %>
+```
+
+- Generates a unique cache key, e.g.
+`:views/articles/index:bea67108094918eeba32cd4a6f786301/articles/1`
+
