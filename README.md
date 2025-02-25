@@ -668,4 +668,23 @@ atom_feed do |feed|
 end
 ```
 
+## 10.2 `debug`
+
+- The debug helper returns a YAML representation of an object wrapped in a `<pre>` tag, making it easy to inspect objects in a readable format.
+
+```ruby
+my_hash = { "first" => 1, "second" => "two", "third" => [1, 2, 3] }
+debug(my_hash)
+```
+
+```ruby
+<pre class="debug_dump">---
+first: 1
+second: two
+third:
+- 1
+- 2
+- 3
+</pre>
+```
 

@@ -1,25 +1,17 @@
 <h1>Articles</h1>
 
+<%= debug(@articles) %>
 
-<% @articles.each do |article| %>
-  <% cache article do %>
-    <h2><%= link_to article.title, article_path(article) %></h2>
-    <p><%= article.content %></p>
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <strong><%= link_to article.title, article_path(article) %></strong>
+      <p><%= article.content %></p>
+      <p><em>By <%= article.author_name %></em></p>
+    </li>
   <% end %>
-<% end %>
+</ul>
 
-
-<%= tag.div "Hello, world!" %>
-
-<%= tag.section class: token_list("kitties", "puppies", nil, false, { bar: true }) %>
-
-<%= tag.div data: { user_id: 123 } do %>
-  <p>Inside div with data attribute</p>
-<% end %>
-
-<% mobile, alignment = true, "center" %>
-<%= tag.div class: class_names("flex items-#{alignment}", "flex-col": mobile) do %>
-  <p>Styled div</p>
-<% end %>
+<p><%= link_to "View as Atom Feed", articles_path(format: :atom) %></p>
 
 
