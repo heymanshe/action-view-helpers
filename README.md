@@ -575,3 +575,19 @@ class_names("flex items-#{alignment}", "flex-col": mobile)
 </html>
 ```
 
+# 9. Benchmarking
+
+## 9.1 Using benchmark
+
+- Wrap a benchmark block around expensive operations or possible bottlenecks to measure execution time.
+
+```ruby
+<% benchmark "Process data files" do %>
+  <%= expensive_files_operation %>
+<% end %>
+```
+
+- This logs execution time: `Process data files (0.34523)`.
+
+- Available in controllers, helpers, models, etc.
+
