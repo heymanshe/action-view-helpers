@@ -1,5 +1,14 @@
 <h1>Articles</h1>
 
+
+<% @articles.each do |article| %>
+  <% cache article do %>
+    <h2><%= link_to article.title, article_path(article) %></h2>
+    <p><%= article.content %></p>
+  <% end %>
+<% end %>
+
+
 <%= tag.div "Hello, world!" %>
 
 <%= tag.section class: token_list("kitties", "puppies", nil, false, { bar: true }) %>
@@ -12,3 +21,5 @@
 <%= tag.div class: class_names("flex items-#{alignment}", "flex-col": mobile) do %>
   <p>Styled div</p>
 <% end %>
+
+

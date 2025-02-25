@@ -575,7 +575,7 @@ class_names("flex items-#{alignment}", "flex-col": mobile)
 </html>
 ```
 
-# 9. Benchmarking
+# 9. Performance
 
 ## 9.1 Using benchmark
 
